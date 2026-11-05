@@ -16,11 +16,17 @@ Plain HTML/CSS/JS. No HubSpot, no database, no build step. Upload this whole fol
 
 URLs match the old site (`/about`, `/services`, `/books-speaking`, `/blog/<post>`, `/contact`), so existing links and Google results keep working.
 
-## Recommended hosting (free or nearly free)
-- **Netlify** or **Cloudflare Pages**: drag-and-drop this folder at app.netlify.com/drop (or pages.cloudflare.com), then add the custom domain `floradelaney.com` and follow their DNS steps.
-- Any other web host also works: upload everything to the site's root (`public_html`).
+## Hosting: GitHub Pages
+Hosted from the `main` branch of https://github.com/themightymo/floradelaney-com (repo root). The `CNAME` file sets the custom domain `floradelaney.com`; pushing to `main` redeploys automatically.
 
-**Before you cancel HubSpot:** point the domain's DNS at the new host first, confirm the site loads, *then* cancel.
+DNS for floradelaney.com (at the domain registrar):
+- `A` records for `@`: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
+- `AAAA` records for `@` (optional): 2606:50c0:8000::153, 2606:50c0:8001::153, 2606:50c0:8002::153, 2606:50c0:8003::153
+- `CNAME` record for `www`: themightymo.github.io
+
+Once DNS resolves, tick **Enforce HTTPS** in the repo's Settings → Pages.
+
+**Before you cancel HubSpot:** point the domain's DNS at GitHub Pages first, confirm the site loads, *then* cancel.
 
 ## Things you can change
 - **Booking link**: in every page, search for `calendar.app.google/gooH22BkNFqcAdAE8` (the button) and `appointments/schedules/…` (the embedded calendar on the Contact page).
@@ -28,8 +34,8 @@ URLs match the old site (`/about`, `/services`, `/books-speaking`, `/blog/<post>
 - **Social**: LinkedIn only (footer). X and Facebook were removed.
 - **Colors & fonts**: top of `assets/css/style.css` (coral #fd5a4c / #ff725e, sky #e5f4f7, teal #71c0d4, footer #56a4bf; Inter + Albert Sans).
 
-## One item to handle before HubSpot ends
-The blog post "The Merchandising Strategy versus Capacity Challenge…" embeds a **HubSpot-hosted video**. Download it from HubSpot (Files → Videos) and upload it to YouTube or Vimeo, then replace the `play.hubspotvideo.com` link in `blog/the-merchandising-strategy-versus-capacity-challenge-in-retailers-today/index.html` with the new embed link.
+## Video
+The interview video in the blog post "The Merchandising Strategy versus Capacity Challenge…" used to be HubSpot-hosted; it is now self-hosted at `assets/video/flora-delaney-localization-interview.mp4`.
 
 ## Preview locally
 Double-click `index.html`. Links work locally; the Google Calendar embed and fonts need an internet connection.
